@@ -54,7 +54,7 @@ const Categories = () => {
     return (
         <Fragment>
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 1 }}>
-                <Grid container sx={{ maxWidth: 1200, display: "flex", margin: "auto" }}>
+                <Grid container maxWidth="lg" sx={{ display: "flex", margin: "auto" }}>
                     {ProductName.map((item) => (
                         <Grid item xs={6} sm={6} md={4} key={item.name} sx={{ p: 1 }}>
                             <Box sx={{ display: "flex", position: "relative", width: "100%" }}>

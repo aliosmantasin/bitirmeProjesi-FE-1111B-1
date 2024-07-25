@@ -1,37 +1,25 @@
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
+
+import { Grid } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-  >
-    •
-  </Box>
-);
 
-export default function CommentCard() {
+
+
+
+const CommentCard = () => {
   return (
-    <Card sx={{ minWidth: 275 }}>
-      <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Word of the Day
-        </Typography>
-        <Typography variant="h5" component="div">
-          be{bull}nev{bull}o{bull}lent
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          adjective
-        </Typography>
-        <Typography variant="body2">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
-      </CardContent>
-    
-    </Card>
+
+    <Grid>
+      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+        03/05/24
+      </Typography>
+      <Typography sx={{fontWeight:"600"}} variant='subtitle1'>Beğendim gayet güzeldi</Typography>
+      <Typography variant="body2">
+        Ürünü gayet güzel ama eksikliği bir süreden sonra bayabiliyor insanı, teşekkürler.
+      </Typography>
+    </Grid>
+ 
   );
 }
+
+export default CommentCard;

@@ -22,7 +22,7 @@ const ProductComponent: React.FC<ProductComponentProps> = ({ products }) => {
   return (
     <Fragment>
       <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 1 }}>
-        <Grid container sx={{ maxWidth: 1200, display: 'flex', margin: 'auto' }}>
+        <Grid container maxWidth="lg" sx={{display: 'flex', margin: 'auto' }}>
           <Grid xs={12}>
             <Typography sx={{ textTransform: 'uppercase', width: '100%', display: 'flex', justifyContent: 'center' }} variant="h6">
               Çok Satanlar

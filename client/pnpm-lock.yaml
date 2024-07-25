@@ -23,6 +23,9 @@ importers:
       '@remix-run/router':
         specifier: ^1.18.0
         version: 1.18.0
+      blaze-slider:
+        specifier: ^1.9.3
+        version: 1.9.3
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -740,6 +743,9 @@ packages:
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
+
+  blaze-slider@1.9.3:
+    resolution: {integrity: sha512-u8i4AhbjICF6gpyKeMEg65kupT2JoN+E7yOJjOt3ocUtS+r4SKYU79DPNSBV2Zb61fix4ChIxfPyyRUSmLao5g==}
 
   brace-expansion@1.1.11:
     resolution: {integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==}
@@ -2076,6 +2082,8 @@ snapshots:
       resolve: 1.22.8
 
   balanced-match@1.0.2: {}
+
+  blaze-slider@1.9.3: {}
 
   brace-expansion@1.1.11:
     dependencies:
