@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Grid, Rating, Typography } from '@mui/material';
-import { Fragment } from 'react';
 
 interface Product {
   name: string;
@@ -20,19 +19,18 @@ const ProductComponent: React.FC<ProductComponentProps> = ({ products }) => {
   const [value, setValue] = React.useState<number | null>(5);
 
   return (
-    <Fragment>
       <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 1 }}>
-        <Grid container maxWidth="lg" sx={{display: 'flex', margin: 'auto' }}>
-          <Grid xs={12}>
+        <Grid item container maxWidth="lg" sx={{display: 'flex', margin: 'auto' }}>
+          <Grid item xs={12}>
             <Typography sx={{ textTransform: 'uppercase', width: '100%', display: 'flex', justifyContent: 'center' }} variant="h6">
               Çok Satanlar
             </Typography>
           </Grid>
           {products.map((item) => {
-            const oldPrice = parseFloat(item.oldprice); // oldprice'ı sayıya dönüştürüyoruz
+            const oldPrice = parseFloat(item.oldprice); 
             const newPrice = item.discount ? (oldPrice - oldPrice * (parseFloat(item.discount) / 100)).toFixed(2) : oldPrice.toFixed(2);
             return (
-              <Grid item xs={6} sm={6} md={2} sx={{ p: 1, mt: 2 }} key={item.name}>
+              <Grid item xs={6} sm={4} md={2} sx={{ p: 1, mt: 2 }} key={item.name}>
                 <Box sx={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
                   <img src={item.img} alt={item.name} />
                   {item.discount && (
@@ -97,7 +95,6 @@ const ProductComponent: React.FC<ProductComponentProps> = ({ products }) => {
           })}
         </Grid>
       </Box>
-    </Fragment>
   );
 };
 

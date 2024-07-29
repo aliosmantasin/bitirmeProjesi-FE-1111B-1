@@ -1,49 +1,158 @@
-import { Link } from 'react-router-dom';
-import { Grid, List, ListItemText } from '@mui/material';
-import styled from '@emotion/styled';
+import { Box, Button, Grid, List, ListItem, ListItemButton, ListItemText, Typography } from '@mui/material';
+import Logo from '../../../assets/logoWhite.svg';
+import AddIcon from '@mui/icons-material/Add';
+import { useState } from 'react';
 
-
-
-const pages = [
-  { name: 'Meta Reklam', path: '#' },
-  { name: 'Google Adwords', path: '#' },
-  { name: 'Web Tasarım', path: '#' }
+const info = [
+  { name: 'İletişim', path: '#' },
+  { name: 'Hakkımızda', path: '#' },
+  { name: 'Sıkça Sorulan Sorular', path: '#' },
+  { name: 'KVKK', path: '#' },
+  { name: 'Çalışma İlkelerimiz', path: '#' },
+  { name: 'Satış Sözleşmesi', path: '#' },
+  { name: 'Garanti ve İade Koşulları', path: '#' },
+  { name: 'Gerçek Müşteri Yorumları', path: '#' },
+  { name: 'Blog', path: '#' }
 ];
 
-const StyledListItemText = styled(ListItemText)({
-  margin: '10px',
-  color: 'Highlight',
-  transition: 'color 0.3s',
-  opacity: "0.9",
-  '&:hover': {
-    color: '#1c75bc',
-  },
-});
+const Categories = [
+  { name: 'Protein', path: '#' },
+  { name: 'Spor Gıdaları', path: '#' },
+  { name: 'Sağlık', path: '#' },
+  { name: 'Gıda', path: '#' },
+  { name: 'Vitamin', path: '#' },
+  { name: 'Aksesuar', path: '#' },
+  { name: 'Tüm Ürünler', path: '#' },
+  { name: 'Paketler', path: '#' },
+  { name: 'Lansmana Özel Fırsatlar', path: '#' }
+];
 
-const StyledList = styled(List)({
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  '@media (max-width: 600px)': {
-    width: "100%",
-    alignItems: 'flex-start',
-    backgroundColor: "#f5fdffb1",
-    marginTop: "0.2rem",
-  },
-});
-
+const PopulerProduct = [
+  { name: 'Whey Protein', path: '#' },
+  { name: 'Cream of Rice', path: '#' },
+  { name: 'Creatine', path: '#' },
+  { name: 'BCAA+', path: '#' },
+  { name: 'Pre-Workout', path: '#' },
+  { name: 'Fitness Paketi', path: '#' },
+  { name: 'Collagen', path: '#' },
+  { name: 'Günlük Vitamin Paketi', path: '#' },
+  { name: 'ZMA', path: '#' }
+];
 
 const Footer = () => {
+  const [isInfoOpen, setIsInfoOpen] = useState(false);
+  const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
+  const [isPopulerProductOpen, setIsPopulerProductOpen] = useState(false);
+
+  const toggleInfo = () => {
+    setIsInfoOpen(!isInfoOpen);
+    setIsCategoriesOpen(false);
+    setIsPopulerProductOpen(false);
+  };
+
+  const toggleCategories = () => {
+    setIsCategoriesOpen(!isCategoriesOpen);
+    setIsInfoOpen(false);
+    setIsPopulerProductOpen(false);
+  };
+
+  const togglePopulerProduct = () => {
+    setIsPopulerProductOpen(!isPopulerProductOpen);
+    setIsInfoOpen(false);
+    setIsCategoriesOpen(false);
+  };
+
   return (
-    <Grid maxWidth="lg" >
-        
-        <Grid sx={{xs:"12", sm:"3"}}>
-             
-        </Grid>
-    
+    <Grid sx={{ display: { xs: "block", sm: "flex" }, margin: "auto", justifyContent: "space-evenly", backgroundColor: "#222222", p: { xs: 4, sm: "auto" } }}>
+      <Grid item>
+        <Box maxWidth="100%">
+          <img src={Logo} style={{ maxWidth: "100px" }} />
+        </Box>
+        <List sx={{ p: 0, m: 0, display: { xs: "none", sm: "block" } }}>
+          {info.map((item) => (
+            <ListItem key={item.name} disablePadding>
+              <ListItemButton sx={{ p: 0, m: 0 }}>
+                <ListItemText primary={item.name} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
 
-    
+        <Box sx={{ display: { xs: "block", sm: "none"},mt:2  }}>
+          <Button variant="text" sx={{ color: "white" }} onClick={toggleInfo}><AddIcon /> OJS NUTRITION</Button>
+          {isInfoOpen && ( // mobil info
+            <List>
+              {info.map((item) => (
+                <ListItem key={item.name} disablePadding>
+                  <ListItemButton sx={{ p: 0, m: 0 }}>
+                    <ListItemText primary={item.name} />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+          )}
+        </Box>
+      </Grid>
 
+      <Grid item>
+        <Box maxWidth="100%">
+          <Typography sx={{ fontWeight: "600", color: "white", display: { xs: "none", sm: "block" } }}>Kategoriler</Typography>
+        </Box>
+        <List sx={{ p: 0, m: 0, display: { xs: "none", sm: "block" } }}>
+          {Categories.map((item) => (
+            <ListItem key={item.name} disablePadding>
+              <ListItemButton sx={{ p: 0, m: 0 }}>
+                <ListItemText primary={item.name} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+
+        <Box sx={{ display: { xs: "block", sm: "none" }, mt:2}}>
+          <Button variant="text" sx={{ color: "white" }} onClick={toggleCategories}><AddIcon />KATEGORİLER</Button>
+          {isCategoriesOpen && ( // mobil Categories
+            <List>
+              {Categories.map((Categories) => (
+                <ListItem key={Categories.name} disablePadding>
+                  <ListItemButton sx={{ p: 0, m: 0 }}>
+                    <ListItemText primary={Categories.name} />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+          )}
+        </Box>
+      </Grid>
+
+      <Grid item>
+        <Box maxWidth="100%">
+          <Typography sx={{ fontWeight: "600", color: "white", display: { xs: "none", sm: "block" } }}>Populer Ürünler</Typography>
+        </Box>
+        <List sx={{ p: 0, m: 0, display: { xs: "none", sm: "block" } }}>
+          {PopulerProduct.map((item) => (
+            <ListItem key={item.name} disablePadding>
+              <ListItemButton sx={{ p: 0, m: 0 }}>
+                <ListItemText primary={item.name} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+
+        <Box sx={{ display: { xs: "block", sm: "none" }, mt:2 }}>
+          <Button variant="text" sx={{ color: "white" }} onClick={togglePopulerProduct}><AddIcon />POPULER ÜRÜNLER</Button>
+          {isPopulerProductOpen && ( // mobil PopulerProduct
+            <List>
+              {PopulerProduct.map((PopulerProduct) => (
+                <ListItem key={PopulerProduct.name} disablePadding>
+                  <ListItemButton sx={{ p: 0, m: 0 }}>
+                    <ListItemText primary={PopulerProduct.name} />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+          )}
+        </Box>
+      </Grid>
     </Grid>
   );
 }

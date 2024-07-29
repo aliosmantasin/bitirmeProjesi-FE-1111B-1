@@ -1,10 +1,5 @@
-
 import { Grid } from '@mui/material';
 import Typography from '@mui/material/Typography';
-
-
-
-
 
 const CommentCard = () => {
   return (

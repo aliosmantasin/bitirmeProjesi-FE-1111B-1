@@ -83,23 +83,11 @@ export default function DrawerAppBar(props: Props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      
+
       <List sx={{ display: { xs: 'block', sm: 'block', md: 'flex' }, justifyContent: { md: 'space-between' } }}>
-        {navItems.map((item) => ( 
-          <Link to={item.path} style={{color:"#222222",textDecoration:"none"}}>
-          <ListItem key={item.name} disablePadding>
-            <DrawerListItemButton>
-              <ListItemText primary={item.name} />
-              <ArrowForwardIosIcon />
-            </DrawerListItemButton>
-          </ListItem>
-          </Link>
-        ))}
-
-
-        {navAdd.map((item) => (
-          <Link to="#" style={{ color: "#222222", textDecoration: "none" }}>
-            <ListItem key={item.name} disablePadding sx={{backgroundColor:"#e5e5e5"}}>
+        {navItems.map((item) => (
+          <Link key={item.name} to={item.path} style={{ color: "#222222", textDecoration: "none" }}>
+            <ListItem disablePadding>
               <DrawerListItemButton>
                 <ListItemText primary={item.name} />
                 <ArrowForwardIosIcon />
@@ -108,6 +96,16 @@ export default function DrawerAppBar(props: Props) {
           </Link>
         ))}
 
+        {navAdd.map((item) => (
+          <Link key={item.name} to="#" style={{ color: "#222222", textDecoration: "none" }}>
+            <ListItem disablePadding sx={{ backgroundColor: "#e5e5e5" }}>
+              <DrawerListItemButton>
+                <ListItemText primary={item.name} />
+                <ArrowForwardIosIcon />
+              </DrawerListItemButton>
+            </ListItem>
+          </Link>
+        ))}
       </List>
     </Box>
   );
@@ -122,15 +120,18 @@ export default function DrawerAppBar(props: Props) {
   
       <AppBar component="nav" sx={{maxHeight:"auto", height:{xs:"auto", sm:"auto"}}}>
       <Grid container sx={{display:{xs:"none", sm:"flex", md:"flex"}, justifyContent:"space-evenly",alignItems:"center", width:"100%",height:"120px", backgroundColor:"white"}}>
-            <Grid item xs={2} md={1}>
+            <Grid item xs={2} md={3}>
+              <Box sx={{maxWidth:"170px", margin:"auto"}}>
                 <Logo/>
+              </Box>
             </Grid>
           <Grid item xs={8} md={8} sx={{display:"flex", justifyContent:"space-evenly"}}>
               <TextFieldNav />
               <BasicSelectNav/>
-            <Button sx={{ display: "flex", justifyContent: "center", alignItems: "center", width:"100px" ,border:"1px solid #919191",}}>
+            <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", width:"100px" ,border:"1px solid #919191",}}>
               <AddToCartEdge/>
-            </Button>
+              {/* <Typography variant='button' sx={{color:"#222222", mx:"2px"}}>SEPET</Typography> */}
+            </Box>
 
           </Grid>
       </Grid>

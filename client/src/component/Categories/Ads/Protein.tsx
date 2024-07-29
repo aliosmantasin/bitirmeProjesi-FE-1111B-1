@@ -1,7 +1,7 @@
 import { Button, Grid, Typography } from "@mui/material";
 import ProteinCategories from "../../../assets/image/ProteinCategories.jpeg"
 import styled from '@emotion/styled';
-
+// Sİl
 
 const CustomImg = styled("img")`
     width: 100%;

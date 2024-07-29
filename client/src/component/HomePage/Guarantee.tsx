@@ -1,12 +1,13 @@
-import { Grid, Typography, Container, CardContent, Rating, Box } from '@mui/material';
+import { Grid, Typography, CardContent, Rating, Box } from '@mui/material';
 import React from 'react';
 
 const Guarantee = () => {
     const [value, setValue] = React.useState<number | null>(5);
   return (
-    <Container maxWidth="lg" sx={{ my:3 }}>
-      <Grid container spacing={2} sx={{backgroundColor:"#222222", justifyContent:"space-evenly"}}>
-        <Grid item xs={12} sm={4} >
+
+      <Grid container sx={{backgroundColor:"#222222" }}>
+        <Grid item maxWidth="lg" sx={{display:{xs:"block", sm:"flex"},margin:"auto", p:1,justifyContent:{xs:"auto", sm:"space-evenly", md:"space-between"}}}>
+        <Grid item xs={12} sm={4}>
 
              <CardContent>
              <Box gap={2} sx={{display:"flex", alignItems:"center"}}>   
@@ -29,7 +30,7 @@ const Guarantee = () => {
        
         </Grid>
 
-        <Grid item xs={12} sm={5}>
+        <Grid item xs={12} sm={6}>
        
            <CardContent>
               <Typography variant="body1" display="block" sx={{ textAlign:"start",}}>
@@ -41,8 +42,9 @@ const Guarantee = () => {
             </CardContent>
         
         </Grid>
+        </Grid>
       </Grid>
-    </Container>
+  
   );
 }
 

@@ -1,5 +1,4 @@
 import { Grid, Box, Typography, Button } from "@mui/material";
-import { Fragment } from "react";
 import styled from '@emotion/styled';
 import ProteinCategories from "../../../src/assets/image/ProteinCategories.jpeg"
 import VitaminCategories from "../../../src/assets/image/VitaminCategories.jpeg"
@@ -52,11 +51,11 @@ const CustomButton = styled(Button)`
     `
 const Categories = () => {
     return (
-        <Fragment>
+       
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 1 }}>
                 <Grid container maxWidth="lg" sx={{ display: "flex", margin: "auto" }}>
                     {ProductName.map((item) => (
-                        <Grid item xs={6} sm={6} md={4} key={item.name} sx={{ p: 1 }}>
+                        <Grid item xs={6} sm={4} md={4} key={item.name} sx={{ p: 1 }}>
                             <Box sx={{ display: "flex", position: "relative", width: "100%" }}>
                                 <CustomImg src={item.img} alt={item.name} />
                                 <CustomBox>
@@ -68,7 +67,7 @@ const Categories = () => {
                     ))}
                 </Grid>
             </Box>
-        </Fragment>
+     
     );
 }
 

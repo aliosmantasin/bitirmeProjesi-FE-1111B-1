@@ -3,7 +3,8 @@ import { RouterProvider} from 'react-router-dom'
 import Routes from "./Routes";
 import theme from './theme';
 import './index.css'
-import { ThemeProvider } from '@emotion/react';
+import {ThemeProvider } from '@mui/material/styles';
+
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <ThemeProvider theme={theme}>
