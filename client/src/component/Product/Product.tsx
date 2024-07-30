@@ -58,7 +58,7 @@ const ProductComponent: React.FC<ProductComponentProps> = ({ products }) => {
                 </Box>
                 <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
                   <Box>
-                    <Rating name="half-rating-read" value={value} onChange={(event, newValue) => {
+                    <Rating name="half-rating-read" value={value} onChange={(_event, newValue) => {
                       setValue(newValue);
                     }} readOnly />
                   </Box>

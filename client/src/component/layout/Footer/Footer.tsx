@@ -63,7 +63,8 @@ const Footer = () => {
   };
 
   return (
-    <Grid sx={{ display: { xs: "block", sm: "flex" }, margin: "auto", justifyContent: "space-evenly", backgroundColor: "#222222", p: { xs: 4, sm: "auto" } }}>
+    <Box component="section"  sx={{display:"block", backgroundColor: "#222222"}}>
+    <Grid sx={{ display: { xs: "block", sm: "flex" }, margin: "auto", justifyContent:{xs:"start", sm:"space-evenly"}, p:{ xs: 4, sm: "auto" } }}>
       <Grid item>
         <Box maxWidth="100%">
           <img src={Logo} style={{ maxWidth: "100px" }} />
@@ -154,6 +155,13 @@ const Footer = () => {
         </Box>
       </Grid>
     </Grid>
+
+      <Grid container maxWidth="1080px" sx={{display:"flex", justifyContent:"center", margin:"auto"}}>
+        <Typography variant='caption'>Copyright © - Tüm Hakları Saklıdır.</Typography>
+      </Grid>
+
+    </Box>
+    
   );
 }
 

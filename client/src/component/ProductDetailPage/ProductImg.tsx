@@ -36,7 +36,7 @@ const ProductImg = () => {
         }
         @media (max-width: 600px){
             width: 350px;
-            display: block;
+            display: none;
             margin: auto;
         }
         `

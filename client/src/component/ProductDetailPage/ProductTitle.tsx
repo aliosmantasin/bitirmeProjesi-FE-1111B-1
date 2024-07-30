@@ -13,7 +13,7 @@ const ProductTitle = () => {
         <Typography sx={{ textTransform: "uppercase" }}>EN ÇOK TERCİH EDİLEN PROTEİN TAKVİYESİ</Typography>
         <Box gap={1} sx={{display:"flex"}}>
 
-        <Rating name="half-rating-read"  value={value}  onChange={(event, newValue) => {
+        <Rating name="half-rating-read"  value={value}  onChange={(_event, newValue) => {
           setValue(newValue);
         }} readOnly />
        
