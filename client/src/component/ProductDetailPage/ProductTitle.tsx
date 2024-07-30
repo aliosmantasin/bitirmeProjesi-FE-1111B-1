@@ -3,7 +3,7 @@ import React from 'react'
 
 
 const ProductTitle = () => {
-    const [value, setValue] = React.useState<number | null>(5);
+    const [value, setValue] = React.useState<number | null>(4);
 
   return (
  
@@ -12,14 +12,11 @@ const ProductTitle = () => {
         <Typography variant='button' sx={{fontSize:"1.8rem"}}>WHEY PROTEIN</Typography>
         <Typography sx={{ textTransform: "uppercase" }}>EN ÇOK TERCİH EDİLEN PROTEİN TAKVİYESİ</Typography>
         <Box gap={1} sx={{display:"flex"}}>
-        <Typography component="legend">Controlled</Typography>
-        <Rating
-        name="simple-controlled"
-        value={value}
-        onChange={(event, newValue) => {
+
+        <Rating name="half-rating-read"  value={value}  onChange={(event, newValue) => {
           setValue(newValue);
-        }}
-      />
+        }} readOnly />
+       
         <Typography sx={{fontWeight:"600"}}>10869 Yorum</Typography>
         </Box>
         <Box>

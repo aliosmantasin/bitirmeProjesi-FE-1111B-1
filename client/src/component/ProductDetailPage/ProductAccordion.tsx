@@ -1,56 +1,25 @@
-
-import Whey from "../../assets/image/product/WheyProtein.jpeg"
-import styled from '@emotion/styled';
-import { Accordion, AccordionDetails, AccordionSlots, AccordionSummary, Fade, Grid, Typography } from '@mui/material';
+import * as React from 'react';
+import Accordion, { AccordionSlots } from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import React from "react";
+import Fade from '@mui/material/Fade';
+import { Divider, Grid } from '@mui/material';
 
+const ProductAccordion: React.FC = () => {
+  const [expanded, setExpanded] = React.useState(false);
 
-const ProductImg = () => {
-
-    const [expanded, setExpanded] = React.useState(false);
-
-    const handleExpansion = () => {
-      setExpanded((prevExpanded) => !prevExpanded);
-    };
-  
-    const CustomImg = styled("img")`
-    max-width: 350px;
-    width: 350px;
-    object-fit: contain;
-    @media (max-width: 1420px){
-        width: 300px
-    }
-    @media (max-width: 600px){
-        width: 350px;
-        display: flex;
-        margin: auto;
-    }
-   `
-
-        const CustomGrid = styled(Grid)`
-            display: none;
-        @media (max-width: 1420px){
-            width: 300px;
-            display: block;
-        }
-        @media (max-width: 600px){
-            width: 350px;
-            display: block;
-            margin: auto;
-        }
-        `
-
+  const handleExpansion = () => {
+    setExpanded((prevExpanded) => !prevExpanded);
+  };
 
   return (
+    //2 farklı yerde accordion kullanıldı
+    <>
+    <Grid mt={3} display={{xs:"block", sm:"none", md:"none"}}>
+    <Divider sx={{my:2}}/>
 
-   <>
-    <Grid item xs={12} sm={4} md={2}>
-        <CustomImg src={Whey} />
-
-
-    
-    <CustomGrid>
         <Typography variant='caption' display="block" gutterBottom>Son Kullanma Tarihi: 07.2025</Typography>
       <Accordion
         expanded={expanded}
@@ -106,13 +75,9 @@ const ProductImg = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      </CustomGrid>
-
-    </Grid>
-
- 
-   </>
-  )
+      </Grid>
+    </>
+  );
 }
 
-export default ProductImg
+export default ProductAccordion

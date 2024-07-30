@@ -19,13 +19,13 @@ const ProductComponent: React.FC<ProductComponentProps> = ({ products }) => {
   const [value, setValue] = React.useState<number | null>(5);
 
   return (
-      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 1 }}>
+      <Box component="section" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 1, p:2 }}>
         <Grid item container maxWidth="lg" sx={{display: 'flex', margin: 'auto' }}>
-          <Grid item xs={12}>
+          {/* <Grid item xs={12}>
             <Typography sx={{ textTransform: 'uppercase', width: '100%', display: 'flex', justifyContent: 'center' }} variant="h6">
               Çok Satanlar
             </Typography>
-          </Grid>
+          </Grid> */}
           {products.map((item) => {
             const oldPrice = parseFloat(item.oldprice); 
             const newPrice = item.discount ? (oldPrice - oldPrice * (parseFloat(item.discount) / 100)).toFixed(2) : oldPrice.toFixed(2);
@@ -58,13 +58,9 @@ const ProductComponent: React.FC<ProductComponentProps> = ({ products }) => {
                 </Box>
                 <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
                   <Box>
-                    <Rating
-                      name="simple-controlled"
-                      value={value}
-                      onChange={(_event, newValue) => {
-                        setValue(newValue);
-                      }}
-                    />
+                    <Rating name="half-rating-read" value={value} onChange={(event, newValue) => {
+                      setValue(newValue);
+                    }} readOnly />
                   </Box>
                 </Box>
                 <Box>

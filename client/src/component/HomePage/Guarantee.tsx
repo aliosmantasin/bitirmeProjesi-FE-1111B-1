@@ -11,14 +11,11 @@ const Guarantee = () => {
 
              <CardContent>
              <Box gap={2} sx={{display:"flex", alignItems:"center"}}>   
-            
-             <Rating
-                  name="simple-controlled"
-                  value={value}
-                  onChange={(_event, newValue) => {
-                    setValue(newValue);
-                  }}
-                />
+           
+              <Rating name="half-rating-read" value={value} onChange={(_event, newValue) => {
+                setValue(newValue);
+              }} readOnly />
+              
                  <Typography variant='body2'>(140.000+)</Typography>
              </Box>
               <Typography variant='button' display="block" sx={{ textAlign:"start",fontSize:"1.1rem" }}>

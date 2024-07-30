@@ -2,6 +2,9 @@ import { Grid } from "@mui/material"
 import ProductProperty from "./ProductProperty"
 import ProductTitle from "./ProductTitle"
 import ProductSize from "./ProductSize"
+import AddToCart from "./AddToCart"
+import HappyCustomer from "./HappyCustomer"
+import ProductAccordion from "./ProductAccordion"
 
 
 const ProductDetail = () => {
@@ -10,6 +13,9 @@ const ProductDetail = () => {
     <ProductTitle/>
     <ProductProperty/>
     <ProductSize/>
+    <AddToCart/>
+    <HappyCustomer/>
+    <ProductAccordion/>
     </Grid>
   )
 }
