@@ -16,13 +16,13 @@ import styled from '@emotion/styled';
 import {Grid, Typography} from '@mui/material';
 import TextFieldNav from './add/TextField';
 import BasicSelectNav from './add/BasicSelect';
-import AddToCartEdge from './add/AddToCartEdge';
 import Logo from './add/Logo';
 import './Navbar.css'
 import { Link } from 'react-router-dom';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
 import HttpsIcon from '@mui/icons-material/Https';
+import CartPage from '../../Cart/Cart';
 
 
 interface Props {
@@ -32,18 +32,18 @@ interface Props {
 const drawerWidth = '75%';
 
 const navItems = [
-  { name: 'PROTEİN', path: '/protein' },
-  { name: 'SPOR GIDALARI', path: '/spor-gidalari' },
-  { name: 'SAĞLIK', path: '/saglik' },
-  { name: 'GIDA', path: '/gida' },
-  { name: 'VİTAMİN', path: '/vitamin' },
-  { name: 'TÜM ÜRÜNLER', path: '/tum-urunler' },
+  { name: 'PROTEİN', path: 'protein' },
+  { name: 'SPOR GIDALARI', path: 'sporgidalari' },
+  { name: 'SAĞLIK', path: 'saglik' },
+  { name: 'GIDA', path: 'gida' },
+  { name: 'VİTAMİN', path: 'vitamin' },
+  { name: 'TÜM ÜRÜNLER', path: 'tumurunler' },
 ];
 
 const navAdd = [
-  { name: 'HESABIM', path: '/hesabim' },
-  { name: 'MÜŞTERİ YORUMLARI', path: '/musteri-yorumlari' },
-  { name: 'İLETİŞİM', path: '/iletisim' },
+  { name: 'HESABIM', path: 'hesabim' },
+  { name: 'MÜŞTERİ YORUMLARI', path: 'musteri-yorumlari' },
+  { name: 'İLETİŞİM', path: 'iletisim' },
 ];
 
 
@@ -82,14 +82,15 @@ export default function DrawerAppBar(props: Props) {
   };
 
   const drawer = (
+    //Mobil Menu Settings
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-
       <List sx={{ display: { xs: 'block', sm: 'block', md: 'flex' }, justifyContent: { md: 'space-between' } }}>
         {navItems.map((item) => (
           <Link key={item.name} to={item.path} style={{ color: "#222222", textDecoration: "none" }}>
             <ListItem disablePadding>
               <DrawerListItemButton>
                 <ListItemText primary={item.name} />
+            
                 <ArrowForwardIosIcon />
               </DrawerListItemButton>
             </ListItem>
@@ -97,10 +98,11 @@ export default function DrawerAppBar(props: Props) {
         ))}
 
         {navAdd.map((item) => (
-          <Link key={item.name} to="#" style={{ color: "#222222", textDecoration: "none" }}>
+          <Link key={item.name}  to={item.path} style={{ color: "#222222", textDecoration: "none" }}>
             <ListItem disablePadding sx={{ backgroundColor: "#e5e5e5" }}>
               <DrawerListItemButton>
                 <ListItemText primary={item.name} />
+               
                 <ArrowForwardIosIcon />
               </DrawerListItemButton>
             </ListItem>
@@ -119,25 +121,21 @@ export default function DrawerAppBar(props: Props) {
       <CssBaseline />
   
       <AppBar component="nav" sx={{maxHeight:"auto", height:{xs:"auto", sm:"auto"}}}>
-      <Grid container sx={{display:{xs:"none", sm:"flex", md:"flex"}, justifyContent:"space-evenly",alignItems:"center", width:"100%",height:"120px", backgroundColor:"white"}}>
-            <Grid item xs={2} md={3}>
-              <Box sx={{maxWidth:"170px", margin:"auto"}}>
-                <Logo/>
-              </Box>
-            </Grid>
-          <Grid item xs={8} md={8} sx={{display:"flex", justifyContent:"space-evenly"}}>
-              <TextFieldNav />
-              <BasicSelectNav/>
-            <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", width:"100px" ,border:"1px solid #919191",}}>
-              <AddToCartEdge/>
-              {/* <Typography variant='button' sx={{color:"#222222", mx:"2px"}}>SEPET</Typography> */}
+        <Grid container sx={{ display: { xs: "none", sm: "flex", md: "flex" }, justifyContent: "space-evenly", alignItems: "center", width: "100%", height: "120px", backgroundColor: "white" }}>
+          <Grid item xs={2} md={3}>
+            <Box sx={{ maxWidth: "170px", margin: "auto" }}>
+              <Link to="/"><Logo /></Link>
             </Box>
-
           </Grid>
-      </Grid>
+          <Grid item xs={8} md={8} sx={{ display: "flex", justifyContent: "space-evenly", alignItems: "center" }}>
+            <TextFieldNav />
+            <BasicSelectNav />
+            <CartPage />
+          </Grid>
+        </Grid>
         <CustomToolbar >
         <Grid sx={{ width:"100%", backgroundColor: { sm:"#222222", md:"#222222"}}}>
-          <Grid sx={{display:{xs:"flex", sm:"flex", md:"none"}, justifyContent:"space-evenly", width:"100%", my:{xs:"1rem", sm:"auto"}}}> 
+          <Grid sx={{display:{xs:"flex", sm:"flex", md:"none"}, justifyContent:"space-evenly",alignItems:"center", width:"100%", my:{xs:"1rem", sm:"auto"}}}> 
           <IconButton // İlk Toolbar
             color="inherit"
             aria-label="open drawer"
@@ -148,20 +146,26 @@ export default function DrawerAppBar(props: Props) {
             <MenuIcon />
           </IconButton>
 
-          <Grid sx={{ display:{xs:"flex", sm:"none", md:"none"},maxWidth:"100px", width:"100px" }}>
-             <Logo/>
+          <Grid sx={{ display:{xs:"block", sm:"none", md:"none"},maxWidth:"120px", width:"100px" }}>
+          {/* Mobil Logo */}
+         <Link to="/"> <Logo/></Link> 
           </Grid>
 
           <Box sx={{display:{xs:"flex", sm: 'none',md:"none"}, justifyContent:"center", alignItems:"center"}}>
-          <AddToCartEdge/>
+          <CartPage/>
+          {/* Mobil Cart */}
           </Box> 
           </Grid>
-          <Grid container sx={{ display: { xs: 'none',sm:"flex", md: 'flex' }, justifyContent:"space-evenly"}}> 
-            {navItems.map((item) => ( //
-              <Button key={item.name} sx={{color:"white"}}>
+          <Grid item  sx={{ display: { xs: 'none',sm:"flex", md: 'flex' }, justifyContent:"space-evenly"}}> 
+         
+            {navItems.map((item) => ( // Desktop Menu
+               <Link to={item.path} key={item.name}>
+              <Button key={item.name}  sx={{color:"white"}}>
                 {item.name}
               </Button>
+              </Link>
             ))}
+         
           </Grid>
           
           <Grid sx={{width:"100%", display:{xs:"flex", sm:"none"}, justifyContent:"center", marginBottom:"1rem"}}> 
@@ -171,11 +175,10 @@ export default function DrawerAppBar(props: Props) {
           </Grid>
           
         </CustomToolbar>
-          <Grid  sx={{ display:{xs:"none", sm:"flex"}, justifyContent:"space-evenly", backgroundColor:"white", color:"#222222", height:"45px"}}> 
-             <Box sx={{display:"flex", alignItems:"center"}}><LocalShippingIcon/><Typography variant='subtitle1' sx={{fontWeight: 600, ml:1, display:"flex", alignItems:"center"}}>Aynı Gün Kargo</Typography><Typography variant='subtitle1' sx={{ml:1, display:"flex", alignItems:"center"}}>16:00'dan Önceki Siparişlerde</Typography></Box>  
-             <Box sx={{display:"flex", alignItems:"center"}}><SentimentSatisfiedAltIcon/><Typography variant='subtitle1' sx={{fontWeight: 600, ml:1, display:"flex", alignItems:"center"}}>Ücretsiz Kargo</Typography><Typography variant='subtitle1' sx={{ml:1, display:"flex", alignItems:"center"}}>100₺ Üzeri Siparişlerde</Typography></Box>  
-             <Box sx={{display:"flex", alignItems:"center"}}><HttpsIcon/><Typography variant='subtitle1' sx={{fontWeight: 600, ml:1, display:"flex", alignItems:"center"}}>Güvenli Alışveriş</Typography><Typography variant='subtitle1' sx={{ml:1, display:"flex", alignItems:"center"}}>1.000.000+ Mutlu Müşteri</Typography></Box>  
- 
+          <Grid  sx={{ display:{xs:"none", sm:"flex"}, justifyContent:"space-evenly",alignItems:"center", backgroundColor:"white", color:"#222222", height:"45px"}}> 
+             <Box sx={{display:"flex", alignItems:"center"}}><LocalShippingIcon/><Typography variant='subtitle1' sx={{fontWeight: 600, ml:1, display:"flex", alignItems:"center"}}>Aynı Gün Kargo</Typography><Typography variant='subtitle2' sx={{ml:1, display:"flex", alignItems:"center"}}>16:00'dan Önceki Siparişlerde</Typography></Box>  
+             <Box sx={{display:"flex", alignItems:"center"}}><SentimentSatisfiedAltIcon/><Typography variant='subtitle1' sx={{fontWeight: 600, ml:1, display:"flex", alignItems:"center"}}>Ücretsiz Kargo</Typography><Typography variant='subtitle2' sx={{ml:1, display:"flex", alignItems:"center"}}>100₺ Üzeri Siparişlerde</Typography></Box>  
+             <Box sx={{display:"flex", alignItems:"center"}}><HttpsIcon/><Typography variant='subtitle1' sx={{fontWeight: 600, ml:1, display:"flex", alignItems:"center"}}>Güvenli Alışveriş</Typography><Typography variant='subtitle2' sx={{ml:1, display:"flex", alignItems:"center"}}>1.000.000+ Mutlu Müşteri</Typography></Box>  
           </Grid>
       </AppBar> 
       <nav>

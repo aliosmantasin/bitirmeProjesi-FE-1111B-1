@@ -14,7 +14,15 @@ const CustomBox = styled(Box)`
   background-color: #dddddd;
 `;
 
-const CustomButton = styled(Button)`
+
+export const CustomButtonBox = styled(Button)`
+    background-color: #000000;
+    width: 100%;
+    display: flex;
+    border-radius: 5px;
+    justify-content: center;
+`
+export const CustomButton = styled(Button)`
     min-width: 100%;
     height: 100%;
 `;
@@ -50,9 +58,9 @@ const AddToCart: React.FC = () => {
                         </CustomBox>
                     </Grid>
                 </Box>
-                <Box sx={{ backgroundColor: "#000000", width: "100%", display: "flex", borderRadius: "5px", justifyContent: "center" }}>
+                <CustomButtonBox>
                     <CustomButton><AddShoppingCartIcon sx={{ color: "white" }} /> <Typography variant="button" sx={{ textTransform: "uppercase", fontSize: "1rem", color: "white" }}>sepete ekle</Typography> </CustomButton>
-                </Box>
+                </CustomButtonBox>
             </Grid>
         </>
     );

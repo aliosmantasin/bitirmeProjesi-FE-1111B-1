@@ -2,12 +2,12 @@ import { Box, Button, Grid, Typography } from '@mui/material'
 import { Fragment } from 'react'
 import ProductDetail from '../component/ProductDetailPage/ProductDetail'
 import ProductImg from '../component/ProductDetailPage/ProductImg'
-import ProductComponent from '../component/Product/Product'
-import { ProductObje } from '../component/Product/ProductCard';
 import RateOfComment from '../component/Comment/RateOfComment'
 import CustomerCommentCard from '../component/Comment/CustomerComent/CustomerCommentCard'
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import { Link } from 'react-router-dom'
+import BestSellersProduct from '../component/Product/BestSellerProduct/BestSellersProduct'
+import { BestSellersProductData } from '../component/Product/BestSellerProduct/BestSellersProductData'
 
 const ProductDetailPage = () => {
 
@@ -21,13 +21,13 @@ const ProductDetailPage = () => {
     </Grid>
     <Grid container width="100" mt={4} sx={{display:"block"}}>
       <Typography sx={{display:"flex",justifyContent:"center", fontSize:"1.3rem"}} variant='button'>SON GÖRÜNTÜLENEN ÜRÜNLER</Typography>
-    <ProductComponent products={ProductObje} />
+    <BestSellersProduct products={BestSellersProductData} />
     </Grid>
     <RateOfComment/>
     <CustomerCommentCard/>
     <Grid container width="100" mt={4} sx={{display:"block"}}>
       <Typography sx={{display:"flex",justifyContent:"center", fontSize:"1.3rem"}} variant='button'>ÇOK SATANLAR</Typography>
-    <ProductComponent products={ProductObje} />
+      <BestSellersProduct products={BestSellersProductData} />
     <Button variant='contained' sx={{display:"flex", justifyContent:"center", margin:"auto", backgroundColor:"#2226ac"}}>TÜMÜNÜ GÖR</Button>
     </Grid>
     <Grid maxWidth="lg" mt={5} sx={{display:"flex", flexWrap:"wrap", alignItems:"center", justifyContent:"start", color:"#2226ac",mx:"auto"}}>

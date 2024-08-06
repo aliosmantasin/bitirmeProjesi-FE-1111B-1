@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Grid, Rating, Typography } from '@mui/material';
 
-interface Product {
+interface Protein {
   name: string;
   path: string;
   img: string;
@@ -12,21 +12,21 @@ interface Product {
 }
 
 interface ProductComponentProps {
-  products: Product[];
+  proteins: Protein[];
 }
 
-const ProductComponent: React.FC<ProductComponentProps> = ({ products }) => {
+const ProteinPage: React.FC<ProductComponentProps> = ({ proteins }) => {
   const [value, setValue] = React.useState<number | null>(5);
 
   return (
-      <Box component="section" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 1, p:2 }}>
+      <Box component="section" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', p:2 }}>
         <Grid item container maxWidth="lg" sx={{display: 'flex', margin: 'auto' }}>
-          {/* <Grid item xs={12}>
-            <Typography sx={{ textTransform: 'uppercase', width: '100%', display: 'flex', justifyContent: 'center' }} variant="h6">
-              Çok Satanlar
-            </Typography>
-          </Grid> */}
-          {products.map((item) => {
+          <Grid sx={{width:"100%"}}>
+          <Typography variant='h4' p={2} sx={{fontWeight:"bold", textAlign:"center"}}>PROTEİN</Typography>
+  
+          </Grid>
+         
+          {proteins.map((item) => {
             const oldPrice = parseFloat(item.oldprice); 
             const newPrice = item.discount ? (oldPrice - oldPrice * (parseFloat(item.discount) / 100)).toFixed(2) : oldPrice.toFixed(2);
             return (
@@ -89,9 +89,15 @@ const ProductComponent: React.FC<ProductComponentProps> = ({ products }) => {
               </Grid>
             );
           })}
+          <Box sx={{width:"100%", display:"flex", justifyContent:"start"}}>
+          <Typography variant='subtitle2'>Vücudun tüm fonksiyonlarını sağlıklı bir şekilde yerine getirmesini sağlayan temel yapı taşlarından biri proteindir.<b>Protein</b>kısaca, bir veya daha fazla amino asit artık <br />
+         <span style={{textDecoration:"underline", color:"#2944c9"}}> Daha fazla göster</span>
+          
+          </Typography>
+          </Box>
         </Grid>
       </Box>
   );
 };
 
-export default ProductComponent;
+export default ProteinPage;

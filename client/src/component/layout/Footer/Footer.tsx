@@ -64,9 +64,11 @@ const Footer = () => {
 
   return (
     <Box component="section"  sx={{display:"block", backgroundColor: "#222222"}}>
-    <Grid sx={{ display: { xs: "block", sm: "flex" }, margin: "auto", justifyContent:{xs:"start", sm:"space-evenly"}, p:{ xs: 4, sm: "auto" } }}>
-      <Grid item>
-        <Box maxWidth="100%">
+    <Grid container maxWidth="lg" sx={{display:"flex", margin:"auto"}}>
+
+     <Grid  sx={{width:"100%", display: { xs: "block", sm: "flex" }, margin: "auto", justifyContent:{xs:"start", sm:"space-between"}, p:{ xs: 4, sm: "2" }}}>
+      <Grid item >
+        <Box>
           <img src={Logo} style={{ maxWidth: "100px" }} />
         </Box>
         <List sx={{ p: 0, m: 0, display: { xs: "none", sm: "block" } }}>
@@ -96,7 +98,7 @@ const Footer = () => {
       </Grid>
 
       <Grid item>
-        <Box maxWidth="100%">
+        <Box>
           <Typography sx={{ fontWeight: "600", color: "white", display: { xs: "none", sm: "block" } }}>Kategoriler</Typography>
         </Box>
         <List sx={{ p: 0, m: 0, display: { xs: "none", sm: "block" } }}>
@@ -126,7 +128,7 @@ const Footer = () => {
       </Grid>
 
       <Grid item>
-        <Box maxWidth="100%">
+        <Box>
           <Typography sx={{ fontWeight: "600", color: "white", display: { xs: "none", sm: "block" } }}>Populer Ürünler</Typography>
         </Box>
         <List sx={{ p: 0, m: 0, display: { xs: "none", sm: "block" } }}>
@@ -154,11 +156,15 @@ const Footer = () => {
           )}
         </Box>
       </Grid>
+
+     
+      </Grid>
+
+      <Grid item width="100%" sx={{display:"flex", justifyContent:"start",p:{ xs: 4, sm: "2" }}}>
+        <Typography variant='caption' display="block">Copyright © - Tüm Hakları Saklıdır.</Typography>
+      </Grid>
     </Grid>
 
-      <Grid container maxWidth="1080px" sx={{display:"flex", justifyContent:"center", margin:"auto"}}>
-        <Typography variant='caption'>Copyright © - Tüm Hakları Saklıdır.</Typography>
-      </Grid>
 
     </Box>
     
