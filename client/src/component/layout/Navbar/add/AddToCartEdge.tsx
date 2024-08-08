@@ -18,8 +18,8 @@ const StyledBadge = styled(Badge)<BadgeProps>(() => ({
 export default function AddToCartEdge() {
   return (
     <Grid aria-label="cart" >
-      <StyledBadge badgeContent={1} color='success'>
-        <ShoppingCartIcon/>
+      <StyledBadge badgeContent={1} color='error' sx={{color:""}}>
+        <ShoppingCartIcon sx={{color:{xs:"#2226ab", sm:"white"}}}/>
       </StyledBadge>
     </Grid>
   );

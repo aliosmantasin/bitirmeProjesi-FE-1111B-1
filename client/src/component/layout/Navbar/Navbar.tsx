@@ -58,7 +58,6 @@ const CustomToolbar = styled(Toolbar)`
   background-color: #222222 !important;
   min-height: 35px !important;
   height: 35px !important;
-
   @media (max-width: 960px) {
     background-color: #fff !important;
     min-height: 35px !important;
@@ -102,7 +101,6 @@ export default function DrawerAppBar(props: Props) {
             <ListItem disablePadding sx={{ backgroundColor: "#e5e5e5" }}>
               <DrawerListItemButton>
                 <ListItemText primary={item.name} />
-               
                 <ArrowForwardIosIcon />
               </DrawerListItemButton>
             </ListItem>
@@ -117,11 +115,11 @@ export default function DrawerAppBar(props: Props) {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box component="section" sx={{ display: 'flex' }}>
       <CssBaseline />
   
-      <AppBar component="nav" sx={{maxHeight:"auto", height:{xs:"auto", sm:"auto"}}}>
-        <Grid container sx={{ display: { xs: "none", sm: "flex", md: "flex" }, justifyContent: "space-evenly", alignItems: "center", width: "100%", height: "120px", backgroundColor: "white" }}>
+      <AppBar component="nav" sx={{maxHeight:"auto", height:{xs:"auto", sm:"auto", boxShadow:"none"}}}>
+        <Grid container sx={{ display: { xs: "none", sm: "flex", md: "flex" }, justifyContent: "space-evenly", alignItems: "center", width: "100%", height: "100px", backgroundColor: "white" }}>
           <Grid item xs={2} md={3}>
             <Box sx={{ maxWidth: "170px", margin: "auto" }}>
               <Link to="/"><Logo /></Link>
@@ -175,10 +173,10 @@ export default function DrawerAppBar(props: Props) {
           </Grid>
           
         </CustomToolbar>
-          <Grid  sx={{ display:{xs:"none", sm:"flex"}, justifyContent:"space-evenly",alignItems:"center", backgroundColor:"white", color:"#222222", height:"45px"}}> 
-             <Box sx={{display:"flex", alignItems:"center"}}><LocalShippingIcon/><Typography variant='subtitle1' sx={{fontWeight: 600, ml:1, display:"flex", alignItems:"center"}}>Aynı Gün Kargo</Typography><Typography variant='subtitle2' sx={{ml:1, display:"flex", alignItems:"center"}}>16:00'dan Önceki Siparişlerde</Typography></Box>  
-             <Box sx={{display:"flex", alignItems:"center"}}><SentimentSatisfiedAltIcon/><Typography variant='subtitle1' sx={{fontWeight: 600, ml:1, display:"flex", alignItems:"center"}}>Ücretsiz Kargo</Typography><Typography variant='subtitle2' sx={{ml:1, display:"flex", alignItems:"center"}}>100₺ Üzeri Siparişlerde</Typography></Box>  
-             <Box sx={{display:"flex", alignItems:"center"}}><HttpsIcon/><Typography variant='subtitle1' sx={{fontWeight: 600, ml:1, display:"flex", alignItems:"center"}}>Güvenli Alışveriş</Typography><Typography variant='subtitle2' sx={{ml:1, display:"flex", alignItems:"center"}}>1.000.000+ Mutlu Müşteri</Typography></Box>  
+          <Grid  sx={{ display:{xs:"none", sm:"flex"}, justifyContent:"space-evenly",alignItems:"center", backgroundColor:"white", color:"#222222", height:"45px",}}> 
+             <Box sx={{display:"flex", alignItems:"center"}}><LocalShippingIcon/><Typography variant='subtitle2' sx={{ ml:1, display:"flex", alignItems:"center", textAlign:"center"}}> <span style={{fontWeight:"600", marginRight:"2px"}}>Aynı Gün Kargo </span> - <span style={{marginLeft:"2px"}}> 16:00'dan Önceki Siparişlerde</span></Typography></Box>  
+             <Box sx={{display:"flex", alignItems:"center"}}><SentimentSatisfiedAltIcon/><Typography variant='subtitle2' sx={{ ml:1, display:"flex", alignItems:"center", textAlign:"center"}}> <span style={{fontWeight:"600", marginRight:"2px"}}>Ücretsiz Kargo</span> - <span style={{marginLeft:"2px"}}>100₺ Üzeri Siparişlerde</span></Typography></Box>  
+             <Box sx={{display:"flex", alignItems:"center"}}><HttpsIcon/><Typography variant='subtitle2' sx={{ ml:1, display:"flex", alignItems:"center", textAlign:"center"}}> <span style={{fontWeight:"600", marginRight:"2px"}}>Güvenli Alışveriş</span> - <span style={{marginLeft:"2px"}}>1.000.000+ Mutlu Müşteri</span></Typography></Box>  
           </Grid>
       </AppBar> 
       <nav>
@@ -199,7 +197,7 @@ export default function DrawerAppBar(props: Props) {
           {drawer}
         </Drawer>
       </nav>
-      <Box component="main" sx={{marginTop:{xs:"77px", sm:"137px"}}}>
+      <Box component="main" sx={{marginTop:{xs:"77px", sm:"116px"}}}>
         <Toolbar />
       </Box>
     </Box>

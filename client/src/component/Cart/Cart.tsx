@@ -28,8 +28,39 @@ const CustomGrid = styled(Grid)`
   justify-content: center;
   position: absolute;
   bottom: 50%;
-
 `
+
+export const BootstrapButton = styled(Button)({
+  boxShadow: 'none',
+  textTransform: 'none',
+  color: "white",
+  width: "190px",
+  height: "46px",
+  '&:hover': {
+    backgroundColor: '#919191',
+    borderColor: 'none',
+    boxShadow: 'none',
+  },
+  '&:active': {
+    boxShadow: 'none',
+    backgroundColor: '#919191',
+  },
+  '@media (max-width: 768px)': {
+    width: '111px',
+  },
+  '@media (max-width: 425px)': {
+    width:"50px",
+    backgroundColor: 'transparent',
+    '&:hover': {
+      boxShadow: 'none',
+      backgroundColor: '#ffffff',
+    },
+    '&:active': {
+      boxShadow: 'none',
+      backgroundColor: '#ffffff',
+    },
+  },
+});
 
 type Anchor = 'right';
 export default function CartPage() {
@@ -120,12 +151,12 @@ export default function CartPage() {
 
   return (
     <div>
-      <Button sx={{ p: 2, display: "flex", justifyContent: "center", alignItems: "center", borderRadius: "5px", border: { xs: "none", sm: "1px solid #dbdbdb" } }} onClick={toggleDrawer("right", true)}>
+      <BootstrapButton sx={{ p: 2, display: "flex", justifyContent: "center", alignItems: "center", borderRadius: "5px", border: { xs: "none", sm: "1px solid #dbdbdb" }, backgroundColor:"#919191" }} onClick={toggleDrawer("right", true)}>
         <Box>
           <AddToCartEdge />
         </Box>
-        <Typography variant='button' sx={{ color: "#222222", mx: "2px", display: { xs: "none", sm: "block" } }}>SEPET</Typography>
-      </Button>
+        <Typography variant='button' sx={{ color: "#ffffff", mx: "2px", display: { xs: "none", sm: "block" } }}>SEPET</Typography>
+      </BootstrapButton>
       <Drawer
         anchor="right"
         open={state.right}

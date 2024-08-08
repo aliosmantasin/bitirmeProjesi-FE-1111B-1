@@ -64,9 +64,9 @@ const Footer = () => {
 
   return (
     <Box component="section"  sx={{display:"block", backgroundColor: "#222222"}}>
-    <Grid container maxWidth="lg" sx={{display:"flex", margin:"auto"}}>
+    <Grid item container maxWidth="lg" sx={{display:"flex", margin:"auto",}}>
 
-     <Grid  sx={{width:"100%", display: { xs: "block", sm: "flex" }, margin: "auto", justifyContent:{xs:"start", sm:"space-between"}, p:{ xs: 4, sm: "2" }}}>
+     <Grid  sx={{width:"100%", display: { xs: "block", sm: "flex" }, margin: "auto", justifyContent:{xs:"start", sm:"space-between"}, p:{ xs: 4, sm: 1 }}}>
       <Grid item >
         <Box>
           <img src={Logo} style={{ maxWidth: "100px" }} />
@@ -160,7 +160,7 @@ const Footer = () => {
      
       </Grid>
 
-      <Grid item width="100%" sx={{display:"flex", justifyContent:"start",p:{ xs: 4, sm: "2" }}}>
+      <Grid item width="100%"  sx={{display:"flex", justifyContent:"start",p:{ xs: 4, sm: 1 }, mt:{xs:"2rem", sm:"3rem"}}}>
         <Typography variant='caption' display="block">Copyright © - Tüm Hakları Saklıdır.</Typography>
       </Grid>
     </Grid>

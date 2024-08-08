@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import DesktopBanner from "../../assets/image/banner.jpeg";
 import MobileBanner from "../../assets/image/mobil-banner.jpg";
 import styled from '@emotion/styled';
@@ -27,10 +27,12 @@ const MobileImg = styled(CustomImg)`
 
 const FirstGlance = () => {
   return (
+    <Box component="section">
     <Grid sx={{ width: "100%" }}>
       <DesktopImg src={DesktopBanner} alt='desktop banner' />
       <MobileImg src={MobileBanner} alt='mobile banner' />
     </Grid>
+    </Box>
   );
 }
 

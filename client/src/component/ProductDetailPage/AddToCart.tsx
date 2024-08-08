@@ -12,6 +12,7 @@ const CustomBox = styled(Box)`
   align-items: center;
   justify-content: center;
   background-color: #dddddd;
+
 `;
 
 
@@ -21,6 +22,9 @@ export const CustomButtonBox = styled(Button)`
     display: flex;
     border-radius: 5px;
     justify-content: center;
+    &:hover {
+    background-color: #000000;
+  }
 `
 export const CustomButton = styled(Button)`
     min-width: 100%;

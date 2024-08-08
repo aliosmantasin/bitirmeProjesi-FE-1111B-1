@@ -12,7 +12,7 @@ const HomePage = () => {
     <Fragment>
       <FirstGlance />
       <Categories />
-      <Grid>
+      <Grid component="section">
             <Grid item xs={12}>
             <Typography sx={{ textTransform: 'uppercase', width: '100%', display: 'flex', justifyContent: 'center' }} variant="h6">
               Çok Satanlar

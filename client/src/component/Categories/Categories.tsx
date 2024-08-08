@@ -51,8 +51,8 @@ const CustomButton = styled(Button)`
     `
 const Categories = () => {
     return (
-       
-            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 1 }}>
+       <Box component="section">
+            <Grid  sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 1 }}>
                 <Grid container maxWidth="lg" sx={{ display: "flex", margin: "auto" }}>
                     {ProductName.map((item) => (
                         <Grid item xs={6} sm={4} md={4} key={item.name} sx={{ p: 1 }}>
@@ -66,8 +66,8 @@ const Categories = () => {
                         </Grid>
                     ))}
                 </Grid>
-            </Box>
-     
+            </Grid>
+        </Box>
     );
 }
 
